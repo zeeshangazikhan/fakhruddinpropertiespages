@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+// This API route performs runtime actions (sending SMTP emails) and
+// therefore must be treated as dynamic when `output: 'export'` is enabled
+export const dynamic = 'force-dynamic'
 import nodemailer from 'nodemailer';
 
 // Email recipients
