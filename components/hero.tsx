@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
-import { Send } from "lucide-react"
+import { Download } from "lucide-react"
 import { HeroContent, defaultHeroContent } from "@/lib/strapi"
+import { Modal } from "@/components/form-modals/common-form-modal"
 
 interface HeroProps {
   isGlobalPage?: boolean;
@@ -87,19 +88,12 @@ export function Hero({ isGlobalPage, content }: HeroProps) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center animate-fade-in animation-delay-700">
-          <Button
-            size="lg"
-            onClick={() => {
-              const el = document.getElementById('eoi-form')
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-            }}
-            className="group relative overflow-hidden bg-white/10 backdrop-blur-xl border-2 border-white/50 text-white hover:bg-white hover:text-[#334058] hover:border-white px-6 py-4 sm:px-10 sm:py-7 text-sm sm:text-base font-semibold uppercase tracking-wider rounded-lg transform hover:scale-105 transition-all duration-500 shadow-2xl"
-          >
-            <span className="relative z-10 flex items-center gap-2 sm:gap-3">
-              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-              {heroData.buttonText}
-            </span>
-          </Button>
+          <div className="w-full sm:w-auto flex justify-center">
+            <Modal title="Download Brochure" pdfUrl="/Treppan-Living-Prive-Brochure.pdf" />
+          </div>
+          <div className="w-full sm:w-auto flex justify-center">
+            <Modal title="Book a Meeting" />
+          </div>
         </div>
 
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-8 max-w-5xl mx-auto animate-fade-in animation-delay-800 items-center justify-center place-items-center">

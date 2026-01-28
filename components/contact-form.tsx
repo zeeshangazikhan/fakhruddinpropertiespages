@@ -236,14 +236,15 @@ export function ContactForm({ isModal = false, title, pdfUrl, onSuccess }: Conta
       {/* Header */}
       <div className="text-center mb-8">
         {!isModal && (
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#DAAA97]/10 border border-[#DAAA97]/20 mb-6">
-            <Sparkles className="w-4 h-4 text-[#DAAA97]" />
-            <p className="text-xs font-bold tracking-widest text-[#DAAA97] uppercase">Get In Touch</p>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DAAA97]/15 border border-[#DAAA97]/30 mb-6 backdrop-blur-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#DAAA97] animate-pulse" />
+            <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">Get In Touch</span>
           </div>
         )}
-        <h2 className={`font-bold text-white mb-3 ${isModal ? 'text-2xl' : 'text-4xl md:text-5xl'}`}>
+        <h2 className={`font-bold text-white mb-3 ${isModal ? 'text-2xl' : 'text-3xl sm:text-4xl md:text-5xl'}`}>
           {title || "Request Call Back"}
         </h2>
+        {!isModal && <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mx-auto mb-4" />}
         <p className="text-white/70 text-sm md:text-base">Our team will contact you within 24 hours</p>
       </div>
 

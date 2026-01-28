@@ -1,6 +1,6 @@
 "use client"
 
-import { Plus, Sparkles } from "lucide-react"
+import { Plus } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
@@ -26,46 +26,75 @@ export function Amenities() {
   }, [])
 
   const amenitiesList = [
-    "Infinity Pool",
+    "Pool",
+    "Aqua Gym",
+    "Endless Pool",
+    "Water Loungers",
+    "Sun Beds",
+    "Cabanas",
+    "BBQ Seating",
+    "Hangout Area/Seating Area",
+    "Working Pods",
+    "Club House",
+    "Misting Majlis",
+    "Green House Cafe",
     "Gym",
-    "Outdoor Calisthenics",
-    "Yoga Deck",
-    "Greenhouse Cafe",
-    "Kids Play Area",
-    "Outdoor Theatre",
-    "Party Deck",
-    "Barbeque",
-    "Pergola Seating",
-    "Library",
-    "Green Lounge",
-    "Swimming Pool",
+    "Outdoor Gym",
+    "Steam",
+    "Sauna",
+    "Hot Plunge",
+    "Cryotherapy",
+    "Hyperbaric Chamber",
+    "Common Massage bed",
+    "Red Light Therapy",
     "Kids Pool",
+    "Kids Adventure Wall",
+    "Kids Play Area",
+    "Zip Lines",
+    "Sand Pit Playground",
+    "Infinity Pool",
+    "Roof top Water Lounger",
+    "Open Shower",
   ]
 
   // Helper to map amenity name to icon file name
   function getAmenityIcon(amenity: string): string {
     const map: Record<string, string> = {
-      "Infinity Pool": "infinityswimmingpool.svg",
+      "Pool": "Splashpool.svg",
+      "Aqua Gym": "Aquagym.svg",
+      "Endless Pool": "infinityswimmingpool.svg",
+      "Water Loungers": "Sunkenseaters.svg",
+      "Sun Beds": "sundeckcabana.svg",
+      "Cabanas": "cabanaseating.svg",
+      "BBQ Seating": "bbqpits.svg",
+      "Hangout Area/Seating Area": "poolsidelounge.svg",
+      "Working Pods": "workingpods.svg",
+      "Club House": "Multipurposehall.svg",
+      "Misting Majlis": "privatecourtyard.svg",
+      "Green House Cafe": "greenhousecafe.svg",
       "Gym": "indoorgym.svg",
-      "Outdoor Calisthenics": "outdoorgym.svg",
-      "Yoga Deck": "meditationzone.svg",
-      "Greenhouse Cafe": "greenhousecafe.svg",
-      "Kids Play Area": "Kidsplayarea.svg",
-      "Outdoor Theatre": "outdoorcinema.svg",
-      "Party Deck": "outdoorpartydeck.svg",
-      "Barbeque": "bbqpits.svg",
-      "Pergola Seating": "cabanaseating.svg",
-      "Library": "meetingpods.svg",
-      "Green Lounge": "poolsidelounge.svg",
-      "Swimming Pool": "Splashpool.svg",
+      "Outdoor Gym": "outdoorgym.svg",
+      "Steam": "steamroom.svg",
+      "Sauna": "himalayansaltbricksauna.svg",
+      "Hot Plunge": "hotplunge.svg",
+      "Cryotherapy": "cryotherapy.svg",
+      "Hyperbaric Chamber": "hyperbaricoxygen.svg",
+      "Common Massage bed": "massagebeds.svg",
+      "Red Light Therapy": "redlighttherapy.svg",
       "Kids Pool": "Kidspool.svg",
+      "Kids Adventure Wall": "Kidsadventurewall.svg",
+      "Kids Play Area": "Kidsplayarea.svg",
+      "Zip Lines": "Wallclimbing.svg",
+      "Sand Pit Playground": "Sandpitplayground.svg",
+      "Infinity Pool": "infinityswimmingpool.svg",
+      "Roof top Water Lounger": "rooftopseaviewinfinitypool.svg",
+      "Open Shower": "openkitchen.svg",
       // fallback mappings for any legacy names
       "Hyperbaric Oxygen Therapy": "hyperbaricoxygen.svg",
-      "Red Light Therapy": "redlighttherapy.svg",
+      "Red Light Therapy (legacy)": "redlighttherapy.svg",
       "Flotation Therapy": "floatationtherapy.svg",
-      "Cryotherapy": "cryotherapy.svg",
     }
-    return map[amenity] || "icon.svg"
+    return map[amenity] || "locationiconsvg-04.svg"
   }
 
   return (
@@ -88,21 +117,19 @@ export function Amenities() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div
-          className={`text-center mb-2 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <div className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-3 rounded-[4px] bg-[#DAAA97]/10 border border-[#DAAA97]/20 mb-4 sm:mb-6">
-            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#DAAA97]" />
-            <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#DAAA97] font-bold">
-              Features & Amenities
-            </p>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DAAA97]/15 border border-[#DAAA97]/30 mb-6 backdrop-blur-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#DAAA97] animate-pulse" />
+            <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">Features & Amenities</span>
           </div>
         </div>
 
         <section>
           <h2
-            className={`text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-bold text-center mb-20 leading-tight transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 leading-tight transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <span className="text-white">A Lifestyle Enriched by Exceptional Amenities</span>
+            <span className="text-white">40+ Amenities for Wellness, Comfort and Ease</span>
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

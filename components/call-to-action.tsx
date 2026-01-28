@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useEffect, useRef, useState } from "react"
-import { Sparkles, MapPin, Award, Home } from "lucide-react"
+import { MapPin, Award, Home } from "lucide-react"
 import { BookMeetingModal } from "@/components/form-modals/book-meeting-modal"
 import { DownloadBrochureModal2 } from "@/components/download-brochure-modal2"
 import { Modal } from "./form-modals/common-form-modal"
@@ -48,24 +48,22 @@ export function CallToAction() {
         <div
           className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <div className="flex justify-center animate-fade-in">
-            <div className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-3 rounded-xl bg-gradient-to-r from-[#DAAA97]/15 to-[#DAAA97]/8 border border-[#DAAA97]/20 mb-4 sm:mb-6">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#DAAA97]" />
-              <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#DAAA97] font-bold">UAE's First Longevity Living Community</p>
+          <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DAAA97]/15 border border-[#DAAA97]/30 mb-6 backdrop-blur-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#DAAA97] animate-pulse" />
+              <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">UAE's First Longevity Living Community</span>
             </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              Ready to Experience Treppan Living Prive?
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mx-auto mb-6" />
+            <p className="max-w-3xl mx-auto text-white/80 text-sm sm:text-base md:text-lg mb-3">
+              Step into a world where thoughtful design meets future-ready living.
+            </p>
+            <p className="max-w-3xl mx-auto text-white/70 text-sm sm:text-base md:text-lg">
+              Experience a tranquil, villa-led sanctuary with calm at its core. From AI-enabled smart homes to wellness-centred design and 20+ curated amenities, Treppan Serenique Prive transforms everyday life into a rhythm of balance and ease.
+            </p>
           </div>
-
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 text-center animate-fade-in animation-delay-200 leading-tight tracking-tight drop-shadow-lg">
-            Ready to Experience Treppan Serenique Prive?
-          </h2>
-
-          <p className="text-white/90 text-base md:text-lg leading-relaxed mb-3 text-center animate-fade-in animation-delay-300 px-4 max-w-3xl mx-auto">
-            Step into a world where thoughtful design meets future-ready living.
-          </p>
-
-          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-10 text-center animate-fade-in animation-delay-300 px-4 max-w-3xl mx-auto">
-            Experience a tranquil, villa-led sanctuary with calm at its core. From AI-enabled smart homes to wellness-centred design and 20+ curated amenities, Treppan Serenique Prive transforms everyday life into a rhythm of balance and ease.
-          </p>
 
           {/*
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-12 animate-fade-in animation-delay-400">

@@ -63,20 +63,19 @@ export function FloorPlans() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white via-[#f7f5f2] to-white">
       <div className="container mx-auto px-4 sm:px-6">
-        {/* <div className="text-center">
-          <div className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-3 rounded-[4px] bg-[#DAAA97]/10 border border-[#DAAA97]/20 mb-4 sm:mb-6">
-            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#DAAA97]" />
-            <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#DAAA97] font-bold">Floor Plann</p>
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DAAA97]/10 border border-[#DAAA97]/25 mb-6">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#DAAA97] animate-pulse" />
+            <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">Floor Plans</span>
           </div>
-        </div> */}
-
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-4 sm:mb-6 leading-tight text-[#334058] px-4">
-          Discover the Floor Plans
-        </h2>
-
-        <p className="text-center text-gray-600 mb-8 sm:mb-12 md:mb-16 max-w-3xl mx-auto text-sm sm:text-base md:text-lg px-4">
-          1–3 bedroom residences that prioritise light, circulation and flexible living.
-        </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#334058] mb-4 leading-tight">
+            Discover the Floor Plans
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mx-auto mb-6" />
+          <p className="max-w-3xl mx-auto text-gray-600 text-sm sm:text-base md:text-lg">
+            Treppan Serenique offers a curated collection of 2- and 3-bedroom residences designed for expansive living.
+          </p>
+        </div>
 
         <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 md:mb-16 px-4">
           <Button
@@ -225,17 +224,14 @@ export function FloorPlans() {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-100">
-                    <tr>
-                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">1 Bedroom</td>
-                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">628 - 1,165 sq. ft.</td>
-                    </tr>
+
                     <tr>
                       <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">2 Bedroom</td>
-                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">1,028 - 1,571 sq. ft.</td>
+                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">980 - 1,483 sq. ft.</td>
                     </tr>
                     <tr>
-                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">3 Bedroom Skyvilla</td>
-                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">2,640 - 2,915 sq. ft.</td>
+                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">3 Bedroom</td>
+                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">1,808 - 1,902 sq. ft.</td>
                     </tr>
                   </tbody>
                 </table>

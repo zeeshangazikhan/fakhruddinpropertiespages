@@ -1,8 +1,10 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Home, Building2, Castle, Sparkles } from "lucide-react"
+import { Home, Building2, Castle, Sparkles, MapPin, Crown, Building, Star, Gem, Heart, Download } from "lucide-react"
 import { OverviewContent, defaultOverviewContent } from "@/lib/strapi"
+import { DownloadBrochureModal } from "@/components/download-brochure-modal"
+import { Button } from "@/components/ui/button"
 
 interface OverviewProps {
   isGlobalPage?: boolean;
@@ -55,6 +57,51 @@ export function Overview({ isGlobalPage, content }: OverviewProps) {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        {/* Wellness Home Section */}
+        <div className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <p className="text-sm sm:text-base text-[#DAAA97] font-semibold uppercase tracking-widest mb-3">A Wellness Home</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#334058] leading-tight mb-6">
+            With Resort Living Built In
+          </h2>
+          <p className="max-w-3xl mx-auto text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-4">
+            Treppan Living Privé is a residential project by Fakhruddin Properties, designed for people who want comfort, privacy, and a calmer pace of living.
+          </p>
+          <p className="max-w-3xl mx-auto text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-4">
+            It brings together 46 amenities and biohacking-focused experiences, so wellness feels close, easy, and part of daily routine rather than a special plan.
+          </p>
+          <p className="max-w-3xl mx-auto text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-8">
+            Homes are supported by clean indoor air, mineralised drinking water, AI-enabled features, and service-led operations that keep shared spaces running smoothly.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10">
+            <div className="text-center">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Starting Price</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-[#334058]">AED 2.9M</p>
+            </div>
+            <DownloadBrochureModal>
+              <Button className="bg-gradient-to-r from-[#DAAA97] to-[#c99a87] text-white px-8 py-4 text-base font-semibold flex items-center gap-2 shadow-lg rounded-xl hover:scale-105 transition-transform">
+                <Download className="w-5 h-5" />
+                Download Brochure
+              </Button>
+            </DownloadBrochureModal>
+          </div>
+          {/* Feature Boxes */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+            {[
+              { icon: MapPin, label: "Prime Location" },
+              { icon: Crown, label: "Inspired For Luxury Experience" },
+              { icon: Building, label: "Premium Architecture" },
+              { icon: Star, label: "5 Star Life Standard" },
+              { icon: Gem, label: "Classy Spaces & Amenities" },
+              { icon: Heart, label: "Cohesive Life, Humanitarian Community" },
+            ].map((feature, idx) => (
+              <div key={idx} className="flex flex-col items-center p-4 rounded-2xl bg-white border border-gray-100 shadow hover:shadow-lg hover:border-[#DAAA97]/40 transition-all duration-300">
+                <feature.icon className="w-7 h-7 text-[#DAAA97] mb-2" />
+                <span className="text-xs sm:text-sm text-[#334058] font-medium text-center leading-tight">{feature.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Header Section */}
         <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>

@@ -95,11 +95,16 @@ export function VisualTour() {
   return (
     <section ref={sectionRef} className="py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <h2
-          className={`text-xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 lg:mb-20 leading-tight text-gray-900 transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >
-          Explore Treppan Serenique Prive
-        </h2>
+        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DAAA97]/10 border border-[#DAAA97]/25 mb-6">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#DAAA97] animate-pulse" />
+            <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">Visual Tour</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#334058] mb-4 leading-tight">
+            Explore Treppan Serenique Prive
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mx-auto" />
+        </div>
 
         <div
           className={`flex justify-center gap-3 md:gap-4 mb-12 md:mb-16 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
