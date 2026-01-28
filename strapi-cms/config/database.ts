@@ -1,6 +1,6 @@
 import path from 'path';
 
-export default ({ env }) => {
+export default ({ env }: { env: any }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
 
   const connections = {
@@ -50,10 +50,12 @@ export default ({ env }) => {
     },
   };
 
+  const clientKey = client as keyof typeof connections;
+
   return {
     connection: {
       client,
-      ...connections[client],
+      ...connections[clientKey],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
   };
