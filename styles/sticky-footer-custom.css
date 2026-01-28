@@ -1,0 +1,32 @@
+@media (max-width: 1534px) and (min-width: 1024px) {
+  .sticky-footer-logo {
+    height: 2.5rem !important;
+    /* h-10 */
+    max-width: 180px !important;
+  }
+
+  .sticky-footer-text {
+    font-size: 0.7rem !important;
+    /* text-xs */
+  }
+
+  .sticky-footer-button {
+    font-size: 0.7rem !important;
+    /* text-xs */
+    min-width: 80px !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+}
+
+
+/* 14-inch MacBook: 1512px width */
+@media (max-width: 1534px) and (min-width: 1278px) {
+
+  .sticky-footer-text,
+  .sticky-footer-button {
+    font-size: 16px !important;
+  }
+}

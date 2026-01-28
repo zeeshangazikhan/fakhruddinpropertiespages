@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_dropdown_options",
+  "info": {
+    "displayName": "Dropdown Option",
+    "icon": "arrowDown",
+    "description": "Generic dropdown option for forms"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_unit_items",
+  "info": {
+    "displayName": "Unit Item",
+    "icon": "building",
+    "description": "Property unit type with details"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "string",
+      "required": true
+    },
+    "count": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "price": {
+      "type": "string",
+      "required": true,
+      "default": "Price To Be Announced"
+    }
+  }
+}

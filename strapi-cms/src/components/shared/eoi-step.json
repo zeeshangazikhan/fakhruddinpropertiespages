@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_eoi_steps",
+  "info": {
+    "displayName": "EOI Step",
+    "icon": "check",
+    "description": "Individual EOI process step"
+  },
+  "options": {},
+  "attributes": {
+    "step": {
+      "type": "text",
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "overviews",
+  "info": {
+    "singularName": "overview",
+    "pluralName": "overviews",
+    "displayName": "Overview",
+    "description": "Overview section content showing available units"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Available Units"
+    },
+    "totalUnitsLabel": {
+      "type": "string",
+      "required": true,
+      "default": "Total Available"
+    },
+    "totalUnits": {
+      "type": "integer",
+      "required": true,
+      "default": 65,
+      "min": 0
+    },
+    "projectName": {
+      "type": "string",
+      "required": true,
+      "default": "Treppan Serenique Prive"
+    },
+    "units": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.unit-item",
+      "required": true
+    }
+  }
+}

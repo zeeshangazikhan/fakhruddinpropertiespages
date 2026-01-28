@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_developer_infos",
+  "info": {
+    "displayName": "Developer Info",
+    "icon": "briefcase",
+    "description": "Developer company information"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "Fakhruddin Properties"
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "telephone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "reraNumber": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

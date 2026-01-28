@@ -1,0 +1,79 @@
+{
+  "kind": "singleType",
+  "collectionName": "eoi_forms",
+  "info": {
+    "singularName": "eoi-form",
+    "pluralName": "eoi-forms",
+    "displayName": "EOI Form",
+    "description": "Expression of Interest form content and configuration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Expression of Interest Form"
+    },
+    "depositAmount": {
+      "type": "string",
+      "required": true,
+      "default": "AED 50,000 (Fifty Thousand Dirhams)"
+    },
+    "depositDescription": {
+      "type": "text",
+      "required": false,
+      "default": "This amount is refundable if you choose not to proceed"
+    },
+    "developerInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.developer-info",
+      "required": true
+    },
+    "eoiSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.eoi-step",
+      "required": true
+    },
+    "processDescription": {
+      "type": "text",
+      "required": true
+    },
+    "unitAllocationNote": {
+      "type": "text",
+      "required": true
+    },
+    "refundNote": {
+      "type": "text",
+      "required": true
+    },
+    "termsAndConditions": {
+      "type": "richtext",
+      "required": true
+    },
+    "downPaymentOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.dropdown-option"
+    },
+    "unitNumberOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.dropdown-option"
+    },
+    "salesManagers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sales-manager"
+    },
+    "formSections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.form-section"
+    }
+  }
+}

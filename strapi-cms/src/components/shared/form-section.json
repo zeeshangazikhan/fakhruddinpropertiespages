@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_shared_form_sections",
+  "info": {
+    "displayName": "Form Section",
+    "icon": "layer",
+    "description": "Form section configuration"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["user", "building", "dollar", "users", "briefcase", "file"],
+      "default": "user"
+    },
+    "order": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "isOptional": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

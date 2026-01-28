@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_sales_managers",
+  "info": {
+    "displayName": "Sales Manager",
+    "icon": "user",
+    "description": "Sales manager for assignment"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": false
+    },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
