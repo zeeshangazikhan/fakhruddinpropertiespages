@@ -23,9 +23,11 @@ const transporter = nodemailer.createTransport({
   },
   connectionTimeout: 10000,
   greetingTimeout: 5000,
-  // allow self-signed certs in some cPanel setups (optional)
+  // Allow self-signed/invalid certs in cPanel/custom setups
+  // This is common for shared hosting SMTP servers
   tls: {
     rejectUnauthorized: false,
+    minVersion: 'TLSv1.2',
   },
 });
 
@@ -280,8 +282,18 @@ export async function POST(request: NextRequest) {
       await transporter.verify();
       console.log('send-eoi: SMTP transporter verified');
     } catch (verifyErr) {
-      console.error('send-eoi: SMTP transporter verification failed', verifyErr);
-      return NextResponse.json({ success: false, message: 'SMTP verification failed' }, { status: 500 });
+      const errMsg = verifyErr instanceof Error ? verifyErr.message : String(verifyErr);
+      console.error('send-eoi: SMTP transporter verification failed', {
+        error: errMsg,
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpSecure,
+        user: process.env.SMTP_USER,
+      });
+      return NextResponse.json({ 
+        success: false, 
+        message: `SMTP verification failed: ${errMsg}` 
+      }, { status: 500 });
     }
     
     // Generate HTML email
