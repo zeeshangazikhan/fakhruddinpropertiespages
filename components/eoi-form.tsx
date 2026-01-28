@@ -177,13 +177,30 @@ export function EOIForm({ content }: EOIFormProps) {
         body: JSON.stringify(payload),
       })
 
-      const result = await response.json()
+      if (!response.ok) {
+        const text = await response.text().catch(() => null)
+        let message = text || response.statusText || `Request failed ${response.status}`
+        try {
+          const parsed = text ? JSON.parse(text) : null
+          if (parsed && parsed.message) message = parsed.message
+        } catch { }
+        setSubmitError(message)
+        return
+      }
 
-      if (result.success) {
-        // Redirect to thank you page
+      let result: any = null
+      try {
+        result = await response.json()
+      } catch (err) {
+        console.error('Submission error: invalid JSON response', err)
+        setSubmitError('Invalid server response. Please try again.')
+        return
+      }
+
+      if (result?.success) {
         router.push('/eoi-treppan-living-prive/thank-you')
       } else {
-        setSubmitError(result.message || 'Failed to submit. Please try again.')
+        setSubmitError(result?.message || 'Failed to submit. Please try again.')
       }
     } catch (error) {
       console.error('Submission error:', error)

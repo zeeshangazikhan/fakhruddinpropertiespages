@@ -261,7 +261,14 @@ function generateEmailHTML(data: EOIFormData): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const data: EOIFormData = await request.json();
+    console.log('send-eoi: incoming method=%s url=%s', request.method, request.url);
+    let data: EOIFormData;
+    try {
+      data = await request.json();
+    } catch (jsonErr) {
+      console.error('send-eoi: invalid JSON body', jsonErr);
+      return NextResponse.json({ success: false, message: 'Invalid JSON body' }, { status: 400 });
+    }
     console.log('send-eoi: SMTP host=%s port=%s secure=%s user=%s', smtpHost, smtpPort, smtpSecure, process.env.SMTP_USER);
 
     // Verify transporter connection before attempting to send
@@ -298,4 +305,23 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+// Explicitly handle other methods so callers always get JSON responses
+export async function GET(request: NextRequest) {
+  console.log('send-eoi: GET received at %s', request.url);
+  return NextResponse.json({ success: false, message: 'Method GET not allowed. Use POST.' }, { status: 405 });
+}
+
+export async function PUT(request: NextRequest) {
+  return NextResponse.json({ success: false, message: 'Method PUT not allowed. Use POST.' }, { status: 405 });
+}
+
+export async function DELETE(request: NextRequest) {
+  return NextResponse.json({ success: false, message: 'Method DELETE not allowed. Use POST.' }, { status: 405 });
+}
+
+export async function OPTIONS(request: NextRequest) {
+  // Respond to preflight requests
+  return new NextResponse(null, { status: 204, headers: { 'Allow': 'POST, OPTIONS' } });
 }
