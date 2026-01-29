@@ -133,7 +133,7 @@ export function VisualTour() {
         </div>
 
         <div className="max-w-6xl mx-auto relative">
-          <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl ring-1 ring-black/6">
+          <div className="relative w-full h-[350px] sm:h-[450px] md:h-[600px] rounded-xl overflow-hidden shadow-2xl ring-1 ring-black/6">
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(255,255,255,0.03)_0%,transparent_35%)] mix-blend-screen pointer-events-none" />
 
