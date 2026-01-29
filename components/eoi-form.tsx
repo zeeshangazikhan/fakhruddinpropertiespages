@@ -143,38 +143,51 @@ export function EOIForm({ content }: EOIFormProps) {
     setIsSubmitting(true)
 
     try {
-      const payload = {
-        // Party 1
-        name1: formData.name1,
-        mobile1: formData.mobile1,
-        email1: formData.email1,
-        nationality1: formData.nationality1,
-        passportNumber1: formData.passportNumber1,
-        // Party 2 (if applicable)
-        name2: showParty2 ? formData.name2 : undefined,
-        mobile2: showParty2 ? formData.mobile2 : undefined,
-        email2: showParty2 ? formData.email2 : undefined,
-        nationality2: showParty2 ? formData.nationality2 : undefined,
-        passportNumber2: showParty2 ? formData.passportNumber2 : undefined,
-        // Unit preferences
-        unitType: formData.unitType || "Not specified",
-        unitNumber: formData.unitNumber || "Not specified",
-        downPayment: formData.downPayment || "Not specified",
-        // Sales Manager
-        salesManager: formData.salesManager || "Not assigned",
-        // Metadata
-        submittedAt: new Date().toLocaleString('en-AE', { 
-          timeZone: 'Asia/Dubai',
-          dateStyle: 'full',
-          timeStyle: 'long'
-        }),
-        source: typeof window !== 'undefined' ? window.location.href : 'EOI Form',
+      // Create FormData to handle both JSON and files
+      const formDataObj = new FormData()
+      
+      // Add form fields
+      formDataObj.append('name1', formData.name1)
+      formDataObj.append('mobile1', formData.mobile1)
+      formDataObj.append('email1', formData.email1)
+      formDataObj.append('nationality1', formData.nationality1)
+      formDataObj.append('passportNumber1', formData.passportNumber1)
+      
+      // Party 2 (if applicable)
+      if (showParty2) {
+        formDataObj.append('name2', formData.name2)
+        formDataObj.append('mobile2', formData.mobile2)
+        formDataObj.append('email2', formData.email2)
+        formDataObj.append('nationality2', formData.nationality2)
+        formDataObj.append('passportNumber2', formData.passportNumber2)
+      }
+      
+      // Unit preferences
+      formDataObj.append('unitType', formData.unitType || 'Not specified')
+      formDataObj.append('unitNumber', formData.unitNumber || 'Not specified')
+      formDataObj.append('downPayment', formData.downPayment || 'Not specified')
+      formDataObj.append('salesManager', formData.salesManager || 'Not assigned')
+      
+      // Metadata
+      formDataObj.append('submittedAt', new Date().toLocaleString('en-AE', { 
+        timeZone: 'Asia/Dubai',
+        dateStyle: 'full',
+        timeStyle: 'long'
+      }))
+      formDataObj.append('source', typeof window !== 'undefined' ? window.location.href : 'EOI Form')
+      
+      // Add files
+      if (passport1) {
+        formDataObj.append('passport1', passport1)
+      }
+      if (passport2 && showParty2) {
+        formDataObj.append('passport2', passport2)
       }
 
       const response = await fetch('/api/send-eoi', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: formDataObj,
+        // Don't set Content-Type header - browser will set it with boundary
       })
 
       if (!response.ok) {

@@ -269,11 +269,62 @@ export async function POST(request: NextRequest) {
   try {
     console.log('send-eoi: incoming method=%s url=%s', request.method, request.url);
     let data: EOIFormData;
+    let passport1Buffer: Buffer | null = null;
+    let passport2Buffer: Buffer | null = null;
+    
     try {
-      data = await request.json();
+      // Check if it's FormData or JSON
+      const contentType = request.headers.get('content-type') || '';
+      
+      if (contentType.includes('multipart/form-data')) {
+        // Parse FormData
+        const formData = await request.formData();
+        
+        // Extract text fields
+        data = {
+          name1: formData.get('name1') as string,
+          mobile1: formData.get('mobile1') as string,
+          email1: formData.get('email1') as string,
+          nationality1: formData.get('nationality1') as string,
+          passportNumber1: formData.get('passportNumber1') as string,
+          name2: formData.get('name2') as string | undefined,
+          mobile2: formData.get('mobile2') as string | undefined,
+          email2: formData.get('email2') as string | undefined,
+          nationality2: formData.get('nationality2') as string | undefined,
+          passportNumber2: formData.get('passportNumber2') as string | undefined,
+          unitType: formData.get('unitType') as string,
+          unitNumber: formData.get('unitNumber') as string,
+          downPayment: formData.get('downPayment') as string,
+          salesManager: formData.get('salesManager') as string,
+          submittedAt: formData.get('submittedAt') as string,
+          source: formData.get('source') as string,
+        };
+        
+        // Extract files
+        const passport1File = formData.get('passport1') as File | null;
+        const passport2File = formData.get('passport2') as File | null;
+        
+        if (passport1File && passport1File.size > 0) {
+          passport1Buffer = Buffer.from(await passport1File.arrayBuffer());
+        }
+        if (passport2File && passport2File.size > 0) {
+          passport2Buffer = Buffer.from(await passport2File.arrayBuffer());
+        }
+        
+        // Store file names for later use
+        const passport1FileName = passport1File?.name || 'Passport_Party1';
+        const passport2FileName = passport2File?.name || 'Passport_Party2';
+        
+        // Add file names to data object for use in attachments
+        (data as any).passport1FileName = passport1FileName;
+        (data as any).passport2FileName = passport2FileName;
+      } else {
+        // Fallback to JSON for backward compatibility
+        data = await request.json();
+      }
     } catch (jsonErr) {
-      console.error('send-eoi: invalid JSON body', jsonErr);
-      return NextResponse.json({ success: false, message: 'Invalid JSON body' }, { status: 400 });
+      console.error('send-eoi: invalid body', jsonErr);
+      return NextResponse.json({ success: false, message: 'Invalid request body' }, { status: 400 });
     }
     console.log('send-eoi: SMTP host=%s port=%s secure=%s user=%s', smtpHost, smtpPort, smtpSecure, process.env.SMTP_USER);
 
@@ -299,13 +350,35 @@ export async function POST(request: NextRequest) {
     // Generate HTML email
     const htmlContent = generateEmailHTML(data);
     
+    // Build attachments array
+    const attachments: Array<{ filename: string; content: Buffer }> = [];
+    if (passport1Buffer) {
+      const fileName = (data as any).passport1FileName || 'Passport_Party1';
+      attachments.push({
+        filename: fileName,
+        content: passport1Buffer,
+      });
+    }
+    if (passport2Buffer) {
+      const fileName = (data as any).passport2FileName || 'Passport_Party2';
+      attachments.push({
+        filename: fileName,
+        content: passport2Buffer,
+      });
+    }
+    
     // Send email to all recipients
-    const mailOptions = {
+    const mailOptions: any = {
       from: process.env.SMTP_FROM || '"Treppan Living Prive" <noreply@treppan.com>',
       to: EMAIL_RECIPIENTS.join(', '),
       subject: `🏢 New EOI Submission - ${data.name1} | ${data.unitType}`,
       html: htmlContent,
     };
+    
+    // Add attachments if any
+    if (attachments.length > 0) {
+      mailOptions.attachments = attachments;
+    }
 
     await transporter.sendMail(mailOptions);
 

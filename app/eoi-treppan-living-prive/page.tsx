@@ -100,9 +100,11 @@ export default function TreppanLivingPrive() {
   // Static defaults load immediately - no skeleton needed
   return (
     <main className="min-h-screen">
-      <Hero content={heroContent} />
-      <Overview content={overviewContent} />
-      <EOIForm content={eoiContent} />
+      <Hero content={heroContent} isEOIPage={true} />
+      <Overview content={overviewContent} isEOIPage={true} />
+      <div id="eoi-form">
+        <EOIForm content={eoiContent} />
+      </div>
       {/* <VisualTour /> */}
       {/* <CallToAction /> */}
       {/* <FloorPlans /> */}

@@ -8,13 +8,21 @@ import { Modal } from "@/components/form-modals/common-form-modal"
 
 interface HeroProps {
   isGlobalPage?: boolean;
+  isEOIPage?: boolean;
   content?: HeroContent;
 }
 
-export function Hero({ isGlobalPage, content }: HeroProps) {
+export function Hero({ isGlobalPage, isEOIPage, content }: HeroProps) {
   // Use provided content or fallback to defaults
   const heroData = content || defaultHeroContent;
   const [isVisible, setIsVisible] = useState(false);
+
+  const handleScrollToForm = () => {
+    const formElement = document.getElementById('eoi-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // const [brochureOpen, setBrochureOpen] = useState(false);
   const tabs = isGlobalPage ? [
@@ -89,12 +97,23 @@ export function Hero({ isGlobalPage, content }: HeroProps) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center animate-fade-in animation-delay-700">
-          <div className="w-full sm:w-auto flex justify-center">
-            <Modal title="Download Brochure" pdfUrl="/Treppan-Living-Prive-Brochure.pdf" />
-          </div>
-          <div className="w-full sm:w-auto flex justify-center">
-            <Modal title="Book a Meeting" />
-          </div>
+          {isEOIPage ? (
+            <button
+              onClick={handleScrollToForm}
+              className="w-full sm:w-auto bg-gradient-to-r from-[#DAAA97] to-[#c99a87] hover:from-[#e5baa7] hover:to-[#d9aa97] text-white px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              Express Interest
+            </button>
+          ) : (
+            <>
+              <div className="w-full sm:w-auto flex justify-center">
+                <Modal title="Download Brochure" pdfUrl="/Treppan-Living-Prive-Brochure.pdf" />
+              </div>
+              <div className="w-full sm:w-auto flex justify-center">
+                <Modal title="Book a Meeting" />
+              </div>
+            </>
+          )}
         </div>
 
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-8 max-w-5xl mx-auto animate-fade-in animation-delay-800 items-center justify-center place-items-center">
