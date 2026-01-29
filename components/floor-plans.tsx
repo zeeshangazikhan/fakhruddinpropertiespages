@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, Download, Sparkles, Ruler, Home } from "luci
 import { DownloadFloorPlanModal } from "@/components/download-floorplan-modal"
 
 export function FloorPlans() {
-  const [activeTab, setActiveTab] = useState<"1bedroom" | "2bedroom" | "3bedroom">("1bedroom")
+  const [activeTab, setActiveTab] = useState<"1bedroom" | "2bedroom" | "4bedroom">("1bedroom")
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const floorPlans2Bed = [
@@ -18,7 +18,7 @@ export function FloorPlans() {
     "/treppan-tower-2-bed-4.webp",
   ];
 
-  const floorPlans3Bed = [
+  const floorPlans4Bed = [
     "/treppan-tower-3-bed-1.webp",
     "/treppan-tower-3-bed-2.webp",
     "/treppan-tower-3-bed-3.webp",
@@ -33,7 +33,7 @@ export function FloorPlans() {
     "/treppan-tower-1-bed-5.webp",
   ];
 
-  const plans = activeTab === "1bedroom" ? floorPlans1Bed : activeTab === "2bedroom" ? floorPlans2Bed : floorPlans3Bed
+  const plans = activeTab === "1bedroom" ? floorPlans1Bed : activeTab === "2bedroom" ? floorPlans2Bed : floorPlans4Bed
 
   // Modal state for lightbox
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -47,7 +47,7 @@ export function FloorPlans() {
   const nextLightbox = () => setLightboxIndex((prev) => (prev + 1) % plans.length)
   const prevLightbox = () => setLightboxIndex((prev) => (prev - 1 + plans.length) % plans.length)
 
-  const handleTabChange = (tab: "1bedroom" | "2bedroom" | "3bedroom") => {
+  const handleTabChange = (tab: "1bedroom" | "2bedroom" | "4bedroom") => {
     setActiveTab(tab)
     setCurrentIndex(0)
   }
@@ -69,11 +69,11 @@ export function FloorPlans() {
             <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">Floor Plans</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#334058] mb-4 leading-tight">
-            Discover the Floor Plans
+            Explore the Layouts
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mx-auto mb-6" />
           <p className="max-w-3xl mx-auto text-gray-600 text-sm sm:text-base md:text-lg">
-            Treppan Serenique offers a curated collection of 2- and 3-bedroom residences designed for expansive living.
+            Treppan Living Privé offers thoughtfully designed 1, 2, and 4-bedroom residences with premium finishes and smart-home integration for modern wellness living.
           </p>
         </div>
 
@@ -93,11 +93,11 @@ export function FloorPlans() {
             2 Bedroom
           </Button>
           <Button
-            onClick={() => handleTabChange("3bedroom")}
-            variant={activeTab === "3bedroom" ? "default" : "outline"}
-            className={`px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 text-sm sm:text-base md:text-lg font-semibold rounded-lg transition-all duration-400 ${activeTab === "3bedroom" ? "bg-gradient-to-r from-[#DAAA97] to-[#c99a87] text-white shadow-lg scale-105" : "bg-white/10 border border-white/12 text-gray-700/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:bg-white/20"}`}
+            onClick={() => handleTabChange("4bedroom")}
+            variant={activeTab === "4bedroom" ? "default" : "outline"}
+            className={`px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 text-sm sm:text-base md:text-lg font-semibold rounded-lg transition-all duration-400 ${activeTab === "4bedroom" ? "bg-gradient-to-r from-[#DAAA97] to-[#c99a87] text-white shadow-lg scale-105" : "bg-white/10 border border-white/12 text-gray-700/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:bg-white/20"}`}
           >
-            3 Bedroom
+            4 Bedroom Penthouse
           </Button>
         </div>
 
@@ -226,12 +226,16 @@ export function FloorPlans() {
                   <tbody className="bg-white divide-y divide-gray-100">
 
                     <tr>
-                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">2 Bedroom</td>
-                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">980 - 1,483 sq. ft.</td>
+                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">1 Bedroom</td>
+                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">1,028 - 1,103 sq. ft.</td>
                     </tr>
                     <tr>
-                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">3 Bedroom</td>
-                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">1,808 - 1,902 sq. ft.</td>
+                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">2 Bedroom</td>
+                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">1,617 - 2,127 sq. ft.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-3 sm:py-4 md:py-5 font-semibold text-gray-800">4 Bedroom Penthouse</td>
+                      <td className="py-3 sm:py-4 md:py-5 text-gray-600">3,592 - 3,647 sq. ft.</td>
                     </tr>
                   </tbody>
                 </table>

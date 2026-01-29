@@ -281,14 +281,14 @@ export const defaultHeroContent: HeroContent = {
 };
 
 export const defaultOverviewContent: OverviewContent = {
-  sectionTitle: 'Available Units',
+  sectionTitle: 'Luxury Residences',
   totalUnitsLabel: 'Total Available',
-  totalUnits: 65,
+  totalUnits: 2,
   projectName: 'Treppan Living Prive',
   units: [
-    { title: '1 Bed Suite', size: '1,028 sq ft - 1,103 sq ft', count: 20, price: 'Price To Be Announced' },
-    { title: '2 Bed Suite', size: '1,617 sq ft - 2,127 sq ft', count: 43, price: 'Price To Be Announced' },
-    { title: '4 Bed Penthouse', size: '3,592 sq ft - 3,647 sq ft', count: 2, price: 'Price To Be Announced' },
+    { title: '1 Bed Suite', size: '1,028 sq ft - 1,103 sq ft', count: 20, price: '' },
+    { title: '2 Bed Suite', size: '1,617 sq ft - 2,127 sq ft', count: 43, price: '' },
+    { title: '4 Bed Penthouse', size: '3,592 sq ft - 3,647 sq ft', count: 2, price: '' },
   ],
 };
 

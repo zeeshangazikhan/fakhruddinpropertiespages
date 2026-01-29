@@ -2,27 +2,39 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Clock, Navigation, Waves, ShoppingBag, Anchor, Coffee, Goal } from "lucide-react"
+import { Clock, Navigation, Waves, ShoppingBag, Anchor, Coffee, Goal, Train, MapPin } from "lucide-react"
 
 export function Location() {
-  const [activeTab, setActiveTab] = useState<"landmark" | "amenities">("landmark")
+  const [activeTab, setActiveTab] = useState<"landmark" | "amenities" | "transport">("landmark")
 
-  // Landmarks as provided
+  // Landmarks
   const landmarks = [
-    { name: "Dubai Islands Beach", time: "2 min", distance: "", Icon: Waves },
-    { name: "Deira Mall", time: "5 min", distance: "", Icon: ShoppingBag },
-    { name: "Dubai Islands Marina", time: "7 min", distance: "", Icon: Anchor },
+    { name: "Dubai Islands Beach", time: "90 sec", distance: "500 m", Icon: Waves },
+    { name: "Dubai Islands Marina", time: "4 min", distance: "2.1 km", Icon: Anchor },
+    { name: "Downtown Dubai and DIFC", time: "20 min", distance: "21 km", Icon: ShoppingBag },
+    { name: "Dubai International Airport", time: "23 min", distance: "21 km", Icon: Navigation },
   ]
 
-  // Amenities (user list)
+  // Amenities
   const amenitiesData = [
-    { name: "Water sports & Scuba Diving", time: "2 min", distance: "", Icon: Waves },
-    { name: "Beach Snacks And Cafes", time: "2 min", distance: "", Icon: Coffee },
-    { name: "Centara Mirage Beach Resort", time: "3 min", distance: "", Icon: Anchor },
-    { name: "9 Hole Golf Course", time: "7 min", distance: "", Icon: Goal },
+    { name: "Waterfront Market", time: "2 min", distance: "500 m", Icon: ShoppingBag },
+    { name: "Water sports & Scuba Diving", time: "2 min", distance: "500 m", Icon: Waves },
+    { name: "Centara Mirage Beach Resort", time: "3 min", distance: "1.2 km", Icon: Coffee },
+    { name: "Dubai Islands Marina", time: "4 min", distance: "2.1 km", Icon: Anchor },
+    { name: "Dubai Islands Mall", time: "5 min", distance: "3 km", Icon: ShoppingBag },
+    { name: "Golf Course & Country Club", time: "5 min", distance: "3 km", Icon: Goal },
   ]
 
-  const data = activeTab === "landmark" ? landmarks : amenitiesData
+  // Transport
+  const transportData = [
+    { name: "Gold Souq Metro Station", time: "12 min", distance: "7.6 km", Icon: Train },
+    { name: "Jumeirah Street (D94)", time: "15 min", distance: "11.6 km", Icon: MapPin },
+    { name: "Sheikh Zayed Road (E11)", time: "17 min", distance: "15.5 km", Icon: MapPin },
+    { name: "Sheikh Mohammed Bin Zayed Road", time: "25 min", distance: "21 km", Icon: MapPin },
+    { name: "Al Khail Road", time: "30 min", distance: "34 km", Icon: MapPin },
+  ]
+
+  const data = activeTab === "landmark" ? landmarks : activeTab === "amenities" ? amenitiesData : transportData
 
   return (
     <section className="py-24 md:py-32">
@@ -46,7 +58,7 @@ export function Location() {
           <div className="space-y-6 order-2 lg:order-1">
             <div className="relative w-full h-[220px] sm:h-[280px] md:h-[330px] rounded-xl md:rounded-[4px] overflow-hidden shadow-2xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.0254655978115!2d55.17132207607863!3d25.033209838322144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6d005f01e39d%3A0x3bec9fb8339333a5!2sTreppan%20Tower!5e0!3m2!1sen!2sin!4v1768267208157!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14428.343786671661!2d55.3005319!3d25.3013163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f450012f91b7f%3A0xa7ef0e9ee623c48e!2sTreppan%20Serenique%20Residences!5e0!3m2!1sen!2sin!4v1769691930426!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0, width: '100%', height: '100%' }}
@@ -58,12 +70,28 @@ export function Location() {
               />
             </div>
 
+            {/* Quick Location Stats */}
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              <div className="bg-white rounded-lg p-4 md:p-5 shadow-md text-center border border-gray-100 hover:border-[#DAAA97]/30 hover:shadow-lg transition-all duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-[#DAAA97] mb-1">2 min</div>
+                <div className="text-xs md:text-sm font-semibold text-gray-700">Beach</div>
+              </div>
+              <div className="bg-white rounded-lg p-4 md:p-5 shadow-md text-center border border-gray-100 hover:border-[#DAAA97]/30 hover:shadow-lg transition-all duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-[#DAAA97] mb-1">20 min</div>
+                <div className="text-xs md:text-sm font-semibold text-gray-700">Downtown</div>
+              </div>
+              <div className="bg-white rounded-lg p-4 md:p-5 shadow-md text-center border border-gray-100 hover:border-[#DAAA97]/30 hover:shadow-lg transition-all duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-[#DAAA97] mb-1">23 min</div>
+                <div className="text-xs md:text-sm font-semibold text-gray-700">Airport</div>
+              </div>
+            </div>
+
             <Button
               className="w-full bg-[#DAAA97] hover:bg-[#c99a87] text-white py-5 md:py-6 text-base md:text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               asChild
             >
                 <a
-                  href="https://maps.app.goo.gl/TVYyzVARqRdYdWdf6"
+                  href="https://maps.app.goo.gl/Ra5oUe3sNQrKeu336"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -89,6 +117,13 @@ export function Location() {
                 className={`flex-1 sm:min-w-[90px] min-w-[64px] transition-all duration-300 text-xs md:text-sm py-4 md:py-5 ${activeTab === "amenities" ? "bg-[#334058] hover:bg-[#2c4460] text-white shadow-md" : "text-gray-700 hover:bg-gray-100"}`}
               >
                 Amenities
+              </Button>
+              <Button
+                onClick={() => setActiveTab("transport")}
+                variant={activeTab === "transport" ? "default" : "ghost"}
+                className={`flex-1 sm:min-w-[90px] min-w-[64px] transition-all duration-300 text-xs md:text-sm py-4 md:py-5 ${activeTab === "transport" ? "bg-[#334058] hover:bg-[#2c4460] text-white shadow-md" : "text-gray-700 hover:bg-gray-100"}`}
+              >
+                Transport
               </Button>
             </div>
 

@@ -33,7 +33,7 @@ export function Amenities() {
     "Sun Beds",
     "Cabanas",
     "BBQ Seating",
-    "Hangout Area/Seating Area",
+    "Hangout Area",
     "Working Pods",
     "Club House",
     "Misting Majlis",
@@ -45,7 +45,7 @@ export function Amenities() {
     "Hot Plunge",
     "Cryotherapy",
     "Hyperbaric Chamber",
-    "Common Massage bed",
+    "Massage Bed",
     "Red Light Therapy",
     "Kids Pool",
     "Kids Adventure Wall",
@@ -53,8 +53,9 @@ export function Amenities() {
     "Zip Lines",
     "Sand Pit Playground",
     "Infinity Pool",
-    "Roof top Water Lounger",
+    "Roof Top Water Lounger",
     "Open Shower",
+    "Roof Deck Sun Beds",
   ]
 
   // Helper to map amenity name to icon file name
@@ -67,7 +68,7 @@ export function Amenities() {
       "Sun Beds": "sundeckcabana.svg",
       "Cabanas": "cabanaseating.svg",
       "BBQ Seating": "bbqpits.svg",
-      "Hangout Area/Seating Area": "poolsidelounge.svg",
+      "Hangout Area": "poolsidelounge.svg",
       "Working Pods": "workingpods.svg",
       "Club House": "Multipurposehall.svg",
       "Misting Majlis": "privatecourtyard.svg",
@@ -79,7 +80,7 @@ export function Amenities() {
       "Hot Plunge": "hotplunge.svg",
       "Cryotherapy": "cryotherapy.svg",
       "Hyperbaric Chamber": "hyperbaricoxygen.svg",
-      "Common Massage bed": "massagebeds.svg",
+      "Massage Bed": "massagebeds.svg",
       "Red Light Therapy": "redlighttherapy.svg",
       "Kids Pool": "Kidspool.svg",
       "Kids Adventure Wall": "Kidsadventurewall.svg",
@@ -87,12 +88,9 @@ export function Amenities() {
       "Zip Lines": "Wallclimbing.svg",
       "Sand Pit Playground": "Sandpitplayground.svg",
       "Infinity Pool": "infinityswimmingpool.svg",
-      "Roof top Water Lounger": "rooftopseaviewinfinitypool.svg",
+      "Roof Top Water Lounger": "rooftopseaviewinfinitypool.svg",
       "Open Shower": "openkitchen.svg",
-      // fallback mappings for any legacy names
-      "Hyperbaric Oxygen Therapy": "hyperbaricoxygen.svg",
-      "Red Light Therapy (legacy)": "redlighttherapy.svg",
-      "Flotation Therapy": "floatationtherapy.svg",
+      "Roof Deck Sun Beds": "sundeckcabana.svg",
     }
     return map[amenity] || "locationiconsvg-04.svg"
   }
@@ -132,12 +130,12 @@ export function Amenities() {
             <span className="text-white">40+ Amenities for Wellness, Comfort and Ease</span>
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Existing Amenities Loop */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 max-w-6xl mx-auto">
+            {/* Amenities List */}
             {amenitiesList.map((amenity, index) => (
               <div
                 key={index}
-                className={`group relative p-6 rounded-[4px] glass-effect hover:bg-white/10 border border-white/10 hover:border-[#DAAA97]/50 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#DAAA97]/20 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                className={`group relative p-6 rounded-[4px] hover:bg-white/10 border border-white/10 hover:border-[#DAAA97]/50 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#DAAA97]/20 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                 style={{ transitionDelay: `${200 + index * 50}ms` }}
               >
@@ -161,7 +159,7 @@ export function Amenities() {
 
             {/* --- NEW: "& Many More" Card --- */}
             <div
-              className={`group relative p-6 rounded-[4px] glass-effect hover:bg-white/10 border border-white/10 hover:border-[#DAAA97]/50 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#DAAA97]/20 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              className={`group relative p-6 rounded-[4px] hover:bg-white/10 border border-white/10 hover:border-[#DAAA97]/50 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#DAAA97]/20 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${200 + amenitiesList.length * 50}ms` }}
             >
               <div className="absolute inset-0 bg-linear-to-br from-[#DAAA97]/0 to-[#DAAA97]/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

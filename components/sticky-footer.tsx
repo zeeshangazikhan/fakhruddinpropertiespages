@@ -10,8 +10,6 @@ import { Modal } from './form-modals/common-form-modal';
 
 export default function StickyFooter() {
   const pathname = usePathname();
-  const isGlobalPage = typeof pathname === 'string' && /treppan-tower\/(international|global)/.test(pathname);
-  const price = isGlobalPage ? "$ 313K" : "AED 1.15M";
 
   // Always show the sticky footer, even at the top (hero section)
   const showFooter = true;
@@ -58,16 +56,16 @@ export default function StickyFooter() {
               />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-base sticky-footer-text"> <b>1, 2 & 3 BR </b> Fully </span>
-              <span className="font-normal text-base sticky-footer-text">Furnished Residences</span>
+              <span className="text-base sticky-footer-text"> <b>1, 2 & 4 BR </b> Wellness </span>
+              <span className="font-normal text-base sticky-footer-text">Residences</span>
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="font-normal text-base sticky-footer-text">Starting from</span>
-              <span className="font-bold text-base sticky-footer-text">{price}</span>
+              <span className="font-normal text-base sticky-footer-text">Smart Home</span>
+              <span className="font-bold text-base sticky-footer-text">Technology Enabled</span>
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="font-bold text-base sticky-footer-text"><b>60/40</b> post handover</span>
-              <span className="font-normal text-base sticky-footer-text">payment plan</span>
+              <span className="font-bold text-base sticky-footer-text"><b>Resort Living</b></span>
+              <span className="font-normal text-base sticky-footer-text">Lifestyle Experience</span>
             </div>
           </div>
           {/* <RegisterInterestModal>

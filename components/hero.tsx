@@ -71,13 +71,14 @@ export function Hero({ isGlobalPage, content }: HeroProps) {
         </div>
         */}
 
-        <div className="max-w-3xl mx-auto mb-8 sm:mb-10 animate-fade-in animation-delay-500">
-          <p className="text-sm sm:text-base md:text-lg text-[#DAAA97] font-semibold uppercase tracking-widest mb-4 drop-shadow-lg">
-            {heroData.tagline}
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 sm:mb-4 leading-tight drop-shadow-lg">
-            {heroData.title}
-          </h1>
+        <div className="max-w-4xl mx-auto mb-4 sm:mb-6 animate-fade-in animation-delay-500">
+          <div className="mb-2 sm:mb-3">
+            <img
+              src="/treppan-prive-logo.png"
+              alt="Treppan Living Privé"
+              className="mx-auto w-[300px] sm:w-[500px] md:w-[600px] object-contain drop-shadow-2xl filter brightness-0 invert"
+            />
+          </div>
           <p className="text-xl sm:text-2xl md:text-3xl text-white font-light leading-relaxed drop-shadow-lg mb-6">
             {heroData.subtitle}
           </p>

@@ -119,7 +119,7 @@ export function TreppanLivingFeatures() {
                     <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#DAAA97]/20 to-[#DAAA97]/5 border border-[#DAAA97]/30 flex items-center justify-center group-hover:scale-110 group-hover:border-[#DAAA97]/50 transition-all duration-300 shadow-lg">
                       <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#DAAA97]" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-2.5 h-2.5 md:w-3 md:h-3 bg-[#DAAA97] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping" />
+                    {/* removed hover dot */}
                   </div>
 
                   {/* Feature Title */}
