@@ -171,37 +171,39 @@ export function Overview({ isGlobalPage, isEOIPage, content }: OverviewProps) {
             )})}
           </div>
 
-          {/* Total Units Card */}
-          <div className={`transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="relative p-8 sm:p-10 md:p-12 rounded-3xl bg-gradient-to-br from-[#334058] via-[#3d4d6a] to-[#2c3a4f] overflow-hidden group hover:shadow-[0_25px_60px_-15px_rgba(51,64,88,0.5)] transition-all duration-700">
-              {/* Animated Background Elements */}
-              <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,#DAAA97_0%,transparent_50%)] opacity-20" />
-                <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,#DAAA97_0%,transparent_50%)] opacity-20" />
-              </div>
-              <div className="absolute -right-20 -top-20 w-60 h-60 bg-[#DAAA97]/20 rounded-full blur-3xl group-hover:bg-[#DAAA97]/30 transition-all duration-700" />
-              <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-[#DAAA97]/10 rounded-full blur-3xl group-hover:bg-[#DAAA97]/20 transition-all duration-700" />
-
-              <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-center">
-                <div className="hidden sm:flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#DAAA97]/30 to-[#DAAA97]/10 border border-[#DAAA97]/40 shadow-lg shadow-[#DAAA97]/20">
-                  <Sparkles className="w-10 h-10 text-[#DAAA97]" />
+          {/* Total Units Card - Hidden on EOI page */}
+          {!isEOIPage && (
+            <div className={`transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+              <div className="relative p-8 sm:p-10 md:p-12 rounded-3xl bg-gradient-to-br from-[#334058] via-[#3d4d6a] to-[#2c3a4f] overflow-hidden group hover:shadow-[0_25px_60px_-15px_rgba(51,64,88,0.5)] transition-all duration-700">
+                {/* Animated Background Elements */}
+                <div className="absolute inset-0 opacity-30">
+                  <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,#DAAA97_0%,transparent_50%)] opacity-20" />
+                  <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,#DAAA97_0%,transparent_50%)] opacity-20" />
                 </div>
-                <div>
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DAAA97]/20 border border-[#DAAA97]/30 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-[#DAAA97] animate-pulse" />
-                    <p className="text-xs text-[#DAAA97] uppercase tracking-[0.2em] font-bold">{overviewData.totalUnitsLabel}</p>
+                <div className="absolute -right-20 -top-20 w-60 h-60 bg-[#DAAA97]/20 rounded-full blur-3xl group-hover:bg-[#DAAA97]/30 transition-all duration-700" />
+                <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-[#DAAA97]/10 rounded-full blur-3xl group-hover:bg-[#DAAA97]/20 transition-all duration-700" />
+
+                <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-center">
+                  <div className="hidden sm:flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#DAAA97]/30 to-[#DAAA97]/10 border border-[#DAAA97]/40 shadow-lg shadow-[#DAAA97]/20">
+                    <Sparkles className="w-10 h-10 text-[#DAAA97]" />
                   </div>
-                  <div className="flex items-baseline gap-3 justify-center">
-                    <span className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-[#DAAA97] to-white animate-shimmer" style={{ backgroundSize: '200% auto', animationDuration: '12s' }}>
-                      {overviewData.totalUnits}
-                    </span>
-                    <span className="text-2xl sm:text-3xl font-bold text-white/80">Units</span>
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DAAA97]/20 border border-[#DAAA97]/30 mb-3">
+                      <div className="w-2 h-2 rounded-full bg-[#DAAA97] animate-pulse" />
+                      <p className="text-xs text-[#DAAA97] uppercase tracking-[0.2em] font-bold">{overviewData.totalUnitsLabel}</p>
+                    </div>
+                    <div className="flex items-baseline gap-3 justify-center">
+                      <span className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-[#DAAA97] to-white animate-shimmer" style={{ backgroundSize: '200% auto', animationDuration: '12s' }}>
+                        {overviewData.totalUnits}
+                      </span>
+                      <span className="text-2xl sm:text-3xl font-bold text-white/80">Units</span>
+                    </div>
+                    <p className="text-white/60 text-sm sm:text-base mt-3">Premium Residences at {overviewData.projectName}</p>
                   </div>
-                  <p className="text-white/60 text-sm sm:text-base mt-3">Premium Residences at {overviewData.projectName}</p>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
