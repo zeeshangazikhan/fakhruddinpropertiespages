@@ -44,7 +44,7 @@ export function Hero({ isGlobalPage, isEOIPage, content }: HeroProps) {
       <div
         className="absolute inset-0 bg-cover bg-[position:25%_center] md:bg-center transition-transform duration-12000 ease-out scale-110"
         style={{
-          backgroundImage: "url('/aminities-1.webp')",
+          backgroundImage: isEOIPage ? "url('/treppan-living-prive-images/treppan-living-prive-hero.webp')" : "url('/aminities-1.webp')",
           transform: isVisible ? "scale(1)" : "scale(1.2)",
         }}
       >
