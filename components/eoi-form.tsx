@@ -166,7 +166,13 @@ export function EOIForm({ content }: EOIFormProps) {
       formDataObj.append('unitType', formData.unitType || 'Not specified')
       formDataObj.append('unitNumber', formData.unitNumber || 'Not specified')
       formDataObj.append('downPayment', formData.downPayment || 'Not specified')
+      formDataObj.append('preferredUnit', formData.preferredUnit || 'Not specified')
       formDataObj.append('salesManager', formData.salesManager || 'Not assigned')
+      
+      // Agency Information
+      formDataObj.append('agencyName', formData.agencyName || 'N/A')
+      formDataObj.append('agentName', formData.agentName || 'N/A')
+      formDataObj.append('agentMobile', formData.agentMobile || 'N/A')
       
       // Metadata
       formDataObj.append('submittedAt', new Date().toLocaleString('en-AE', { 

@@ -50,7 +50,13 @@ interface EOIFormData {
   unitType: string;
   unitNumber: string;
   downPayment: string;
+  preferredUnit: string;
   salesManager: string;
+  
+  // Agency Information
+  agencyName: string;
+  agentName: string;
+  agentMobile: string;
   
   // Metadata
   submittedAt: string;
@@ -230,6 +236,54 @@ function generateEmailHTML(data: EOIFormData): string {
             </td>
           </tr>
 
+          <!-- EOI Value -->
+          <tr>
+            <td style="padding: 0 40px 32px;">
+              <table role="presentation" style="width: 100%; border-collapse: collapse; background: #e7f3ff; border-radius: 12px; border: 1px solid #b3d9ff;">
+                <tr>
+                  <td style="padding: 20px;">
+                    <span style="color: #004085; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">💰 EOI Value</span>
+                    <p style="margin: 8px 0 0 0; color: #004085; font-size: 18px; font-weight: 700;">${data.preferredUnit}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Agency Information -->
+          <tr>
+            <td style="padding: 0 40px 32px;">
+              <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="padding-bottom: 16px;">
+                    <h2 style="margin: 0; color: #334058; font-size: 18px; font-weight: 600;">
+                      🏢 Agency Information
+                    </h2>
+                  </td>
+                </tr>
+              </table>
+              
+              <table role="presentation" style="width: 100%; border-collapse: collapse; background: #f0f8ff; border-radius: 12px; overflow: hidden;">
+                <tr>
+                  <td style="padding: 16px 20px; border-bottom: 1px solid #d9e9f7;">
+                    <span style="color: #004085; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Agency Name</span>
+                    <p style="margin: 4px 0 0 0; color: #334058; font-size: 16px; font-weight: 600;">${data.agencyName}</p>
+                  </td>
+                  <td style="padding: 16px 20px; border-bottom: 1px solid #d9e9f7;">
+                    <span style="color: #004085; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Agent Name</span>
+                    <p style="margin: 4px 0 0 0; color: #334058; font-size: 16px; font-weight: 600;">${data.agentName}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="padding: 16px 20px;">
+                    <span style="color: #004085; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Agent Mobile</span>
+                    <p style="margin: 4px 0 0 0; color: #334058; font-size: 16px; font-weight: 600;">${data.agentMobile}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
           <!-- Sales Manager -->
           <tr>
             <td style="padding: 0 40px 32px;">
@@ -295,7 +349,11 @@ export async function POST(request: NextRequest) {
           unitType: formData.get('unitType') as string,
           unitNumber: formData.get('unitNumber') as string,
           downPayment: formData.get('downPayment') as string,
+          preferredUnit: formData.get('preferredUnit') as string,
           salesManager: formData.get('salesManager') as string,
+          agencyName: formData.get('agencyName') as string,
+          agentName: formData.get('agentName') as string,
+          agentMobile: formData.get('agentMobile') as string,
           submittedAt: formData.get('submittedAt') as string,
           source: formData.get('source') as string,
         };
