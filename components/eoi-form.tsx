@@ -166,7 +166,7 @@ export function EOIForm({ content }: EOIFormProps) {
       formDataObj.append('unitType', formData.unitType || 'Not specified')
       formDataObj.append('unitNumber', formData.unitNumber || 'Not specified')
       formDataObj.append('downPayment', formData.downPayment || 'Not specified')
-      formDataObj.append('preferredUnit', formData.preferredUnit || 'Not specified')
+      formDataObj.append('preferredUnit', eoiData.depositAmount || 'Not specified')
       formDataObj.append('salesManager', formData.salesManager || 'Not assigned')
       
       // Agency Information
@@ -581,15 +581,15 @@ export function EOIForm({ content }: EOIFormProps) {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="agencyName" className="text-[#334058] font-medium">Agency Name</Label>
-                      <Input id="agencyName" placeholder="Enter agency name" className="border-gray-200 focus:border-[#DAAA97] focus:ring-[#DAAA97]" />
+                      <Input id="agencyName" value={formData.agencyName} onChange={(e) => updateField('agencyName', e.target.value)} placeholder="Enter agency name" className="border-gray-200 focus:border-[#DAAA97] focus:ring-[#DAAA97]" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="agentName" className="text-[#334058] font-medium">Agent Name</Label>
-                      <Input id="agentName" placeholder="Enter agent name" className="border-gray-200 focus:border-[#DAAA97] focus:ring-[#DAAA97]" />
+                      <Input id="agentName" value={formData.agentName} onChange={(e) => updateField('agentName', e.target.value)} placeholder="Enter agent name" className="border-gray-200 focus:border-[#DAAA97] focus:ring-[#DAAA97]" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="agentMobile" className="text-[#334058] font-medium">Agent Mobile Number</Label>
-                      <Input id="agentMobile" type="tel" placeholder="+971 XX XXX XXXX" className="border-gray-200 focus:border-[#DAAA97] focus:ring-[#DAAA97]" />
+                      <Input id="agentMobile" type="tel" value={formData.agentMobile} onChange={(e) => updateField('agentMobile', e.target.value)} placeholder="+971 XX XXX XXXX" className="border-gray-200 focus:border-[#DAAA97] focus:ring-[#DAAA97]" />
                     </div>
                   </div>
                 </div>
