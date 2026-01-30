@@ -97,7 +97,7 @@ export function FloorPlans() {
             variant={activeTab === "4bedroom" ? "default" : "outline"}
             className={`px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 text-sm sm:text-base md:text-lg font-semibold rounded-lg transition-all duration-400 ${activeTab === "4bedroom" ? "bg-gradient-to-r from-[#DAAA97] to-[#c99a87] text-white shadow-lg scale-105" : "bg-white/10 border border-white/12 text-gray-700/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:bg-white/20"}`}
           >
-            4 Bedroom Penthouse
+            4 Bedroom
           </Button>
         </div>
 

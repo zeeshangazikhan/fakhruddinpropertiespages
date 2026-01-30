@@ -108,15 +108,15 @@ export function TreppanLivingFeatures() {
               return (
                 <div
                   key={index}
-                  className="group relative p-5 sm:p-6 md:p-7 rounded-2xl md:rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#DAAA97]/50 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#DAAA97]/10 overflow-hidden"
+                  className="group relative p-5 sm:p-6 md:p-7 rounded-2xl md:rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#DAAA97]/50 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#DAAA97]/10 overflow-hidden text-center md:text-left"
                   style={{ transitionDelay: `${index * 80}ms` }}
                 >
                   {/* Hover Gradient Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#DAAA97]/10 via-transparent to-[#334058]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-3xl" />
 
                   {/* Icon Container */}
-                  <div className="relative mb-4 md:mb-5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#DAAA97]/20 to-[#DAAA97]/5 border border-[#DAAA97]/30 flex items-center justify-center group-hover:scale-110 group-hover:border-[#DAAA97]/50 transition-all duration-300 shadow-lg">
+                  <div className="relative mb-4 md:mb-5 flex justify-center md:justify-start">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#DAAA97]/20 to-[#DAAA97]/5 border border-[#DAAA97]/30 flex items-center justify-center mx-auto md:mx-0 group-hover:scale-110 group-hover:border-[#DAAA97]/50 transition-all duration-300 shadow-lg">
                       <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#DAAA97]" />
                     </div>
                     {/* removed hover dot */}

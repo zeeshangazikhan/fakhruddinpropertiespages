@@ -82,7 +82,7 @@ export function Hero({ isGlobalPage, isEOIPage, content }: HeroProps) {
         <div className="max-w-4xl mx-auto mb-4 sm:mb-6 animate-fade-in animation-delay-500">
           <div className="mb-2 sm:mb-3">
             <img
-              src="/treppan-prive-logo.png"
+              src="/treppan-living-prive-svg2.svg"
               alt="Treppan Living Privé"
               className="mx-auto w-[300px] sm:w-[500px] md:w-[600px] object-contain drop-shadow-2xl filter brightness-0 invert"
             />

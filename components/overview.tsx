@@ -125,7 +125,7 @@ export function Overview({ isGlobalPage, isEOIPage, content }: OverviewProps) {
               return (
               <div
                 key={index}
-                className="group relative p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl hover:shadow-[#DAAA97]/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                className="group relative p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl hover:shadow-[#DAAA97]/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden text-center md:text-left"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Hover Gradient Background */}
@@ -133,7 +133,7 @@ export function Overview({ isGlobalPage, isEOIPage, content }: OverviewProps) {
 
                 {/* Icon Container */}
                 <div className="relative mb-5">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#334058] to-[#4a5d7a] flex items-center justify-center group-hover:scale-105 transition-all duration-300 shadow-lg">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#334058] to-[#4a5d7a] flex items-center justify-center mx-auto md:mx-0 group-hover:scale-105 transition-all duration-300 shadow-lg">
                     <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                   </div>
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#DAAA97] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping" />
@@ -145,14 +145,14 @@ export function Overview({ isGlobalPage, isEOIPage, content }: OverviewProps) {
                 </h3>
 
                 {/* Unit Details */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
+                  <div className="space-y-3">
+                  <div className="flex items-center gap-3 justify-center md:justify-start">
                     <div className="w-2 h-2 rounded-full bg-[#DAAA97]" />
                     <p className="text-gray-600 text-sm sm:text-base">
                       <span className="font-semibold text-[#334058]">Size:</span> {unit.size}
                     </p>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 justify-center md:justify-start">
                     <div className="w-2 h-2 rounded-full bg-[#DAAA97]" />
                     <p className="text-gray-600 text-sm sm:text-base">
                       <span className="font-semibold text-[#334058]">Units Available:</span> {unit.count}

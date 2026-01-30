@@ -83,10 +83,10 @@ export function AvailableUnits({ content }: AvailableUnitsProps) {
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   {/* Card */}
-                  <div className={`relative h-full p-6 sm:p-8 rounded-3xl transition-all duration-500 overflow-hidden ${isHovered ? 'bg-[#334058] scale-[1.02] shadow-2xl shadow-[#334058]/30' : 'bg-white shadow-lg border border-gray-100'}`}>
+                  <div className={`relative h-full p-6 sm:p-8 rounded-3xl transition-all duration-500 overflow-hidden text-center md:text-left ${isHovered ? 'bg-[#334058] scale-[1.02] shadow-2xl shadow-[#334058]/30' : 'bg-white shadow-lg border border-gray-100'}`}>
 
                     {/* Icon */}
-                    <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${isHovered ? 'bg-[#DAAA97] rotate-3 scale-110' : 'bg-gradient-to-br from-[#334058] to-[#4a5d7a]'}`}>
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0 transition-all duration-500 ${isHovered ? 'bg-[#DAAA97] rotate-3 scale-110' : 'bg-gradient-to-br from-[#334058] to-[#4a5d7a]'}`}>
                       <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                     </div>
 
@@ -97,7 +97,7 @@ export function AvailableUnits({ content }: AvailableUnitsProps) {
 
                     {/* Details */}
                     <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 justify-center md:justify-start">
                         <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-300 ${isHovered ? 'bg-[#DAAA97]/30' : 'bg-[#DAAA97]/10'}`}>
                           <Check className={`w-3.5 h-3.5 ${isHovered ? 'text-[#DAAA97]' : 'text-[#DAAA97]'}`} />
                         </div>

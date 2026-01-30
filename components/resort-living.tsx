@@ -93,7 +93,7 @@ export function ResortLiving() {
               </div>
 
               {/* Price & CTA */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-6 border-t border-white/10">
+              <div className="flex flex-col sm:flex-row items-center gap-6 pt-6 border-t border-white/10 text-center sm:text-left">
                 <div>
                   <p className="text-xs text-[#DAAA97] uppercase tracking-widest mb-1">Starting Price</p>
                   <p className="text-3xl sm:text-4xl font-bold text-white">AED 2.9M</p>
@@ -107,14 +107,14 @@ export function ResortLiving() {
               {features.map((feature, idx) => (
                 <div
                   key={idx}
-                  className={`group relative p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#DAAA97]/40 hover:bg-[#DAAA97]/10 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                  className={`group relative p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#DAAA97]/40 hover:bg-[#DAAA97]/10 transition-all duration-500 text-center md:text-left ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                   style={{ transitionDelay: `${300 + idx * 100}ms` }}
                 >
                   {/* Glow Effect */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#DAAA97]/0 to-[#DAAA97]/0 group-hover:from-[#DAAA97]/10 group-hover:to-transparent transition-all duration-500" />
                   
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#DAAA97]/20 to-[#DAAA97]/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#DAAA97]/20 to-[#DAAA97]/5 flex items-center justify-center mb-4 mx-auto md:mx-0 group-hover:scale-110 transition-transform duration-300">
                       <feature.icon className="w-6 h-6 text-[#DAAA97]" />
                     </div>
                     <h3 className="text-white font-semibold text-sm sm:text-base mb-1">{feature.label}</h3>

@@ -72,7 +72,7 @@ export function AlaCarteServices() {
           <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
             
             {/* Left Column - Sticky Header */}
-            <div className={`lg:col-span-2 lg:sticky lg:top-32 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <div className={`lg:col-span-2 lg:sticky lg:top-32 transition-all duration-1000 text-center lg:text-left ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#DAAA97]/15 border border-[#DAAA97]/30 mb-6 backdrop-blur-sm">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#DAAA97] animate-pulse" />
                 <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">On-Demand</span>
@@ -81,9 +81,9 @@ export function AlaCarteServices() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
                 À La Carte Services
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mb-6" />
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mb-6 mx-auto lg:mx-0" />
               
-              <p className="text-white/70 text-base sm:text-lg leading-relaxed max-w-md">
+              <p className="text-white/70 text-base sm:text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                 Extra services are available when you need them. From transport and boating to home care and wellness support, you can add help on demand for an easier, worry-free lifestyle.
               </p>
             </div>
