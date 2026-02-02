@@ -7,6 +7,7 @@ import { AlaCarteServices } from "@/components/alacarte-services"
 import { CoreServices } from "@/components/core-services"
 import { VisualTour } from "@/components/visual-tour"
 import { CallToAction } from "@/components/call-to-action"
+import { AmenitiesGallery } from "@/components/amenities-gallery"
 import { Amenities } from "@/components/amenities"
 import { FloorPlans } from "@/components/floor-plans"
 import { Location } from "@/components/location"
@@ -38,6 +39,7 @@ export default function TreppanLivingPriveLanding() {
    
       <VisualTour />
       <CallToAction />
+      <AmenitiesGallery />
       <FloorPlans />
       <Location />
       <Amenities />

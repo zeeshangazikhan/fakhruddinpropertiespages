@@ -77,8 +77,7 @@ export function Overview({ isGlobalPage, isEOIPage, content }: OverviewProps) {
             {!isEOIPage && (
               <>
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Starting Price</p>
-                  <p className="text-3xl sm:text-4xl font-extrabold text-[#334058]">AED 2.9M</p>
+                  <p className="text-3xl sm:text-4xl font-extrabold text-[#334058]">Price To Be announced</p>
                 </div>
                 <DownloadBrochureModal>
                   <Button className="bg-gradient-to-r from-[#DAAA97] to-[#c99a87] text-white px-8 py-4 text-base font-semibold flex items-center gap-2 shadow-lg rounded-xl hover:scale-105 transition-transform">

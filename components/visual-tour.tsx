@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 
 export function VisualTour() {
-  const [activeTab, setActiveTab] = useState<"exterior" | "interior" | "amenities">("exterior")
+  const [activeTab, setActiveTab] = useState<"exterior" | "interior">("exterior")
   const [isVisible, setIsVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -78,18 +78,9 @@ export function VisualTour() {
     // { src: "/Interior-12.webp", alt: "Interior View 12" },
   ]
 
-  // Amenities tab: show actual images from public/
-  const amenitiesImages = [
-    { src: "/Treppan-Tower-amenities-1.webp", alt: "Amenity - Rooftop Infinity Pool" },
-    { src: "/Treppan-Tower-amenities-2.webp", alt: "Amenity - Balcony Jacuzzi" },
-    { src: "/Treppan-Tower-amenities-3.webp", alt: "Amenity - Rooftop Lounge" },
-    { src: "/Treppan-Tower-amenities-4.webp", alt: "Amenity - Private Courtyard" },
-    { src: "/Treppan-Tower-amenities-5.webp", alt: "Amenity - Podium Infinity Pool" },
-    { src: "/Treppan-Tower-amenities-6.webp", alt: "Amenity - Bamboo Oxygen Park" },
-    { src: "/Treppan-Tower-amenities-7.webp", alt: "Amenity - Spa" },
-  ];
 
-  const images = activeTab === "exterior" ? exteriorImages : activeTab === "interior" ? interiorImages : amenitiesImages;
+
+  const images = activeTab === "exterior" ? exteriorImages : interiorImages;
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length)
@@ -121,7 +112,7 @@ export function VisualTour() {
             <span className="text-xs sm:text-sm font-semibold text-[#DAAA97] uppercase tracking-widest">Visual Tour</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#334058] mb-4 leading-tight">
-            Explore Treppan Serenique Prive
+            Explore Treppan Living Prive
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DAAA97] to-transparent mx-auto" />
         </div>
@@ -142,13 +133,6 @@ export function VisualTour() {
             className={`px-6 md:px-8 py-3 md:py-5 text-sm md:text-base font-semibold rounded-lg transition-all duration-400 ${activeTab === "interior" ? "bg-gradient-to-r from-[#DAAA97] to-[#c99a87] text-white shadow-lg scale-105" : "bg-white/10 border border-white/12 text-gray-700/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:bg-white/20"}`}
           >
             Interior
-          </Button>
-          <Button
-            onClick={() => setActiveTab("amenities")}
-            variant={activeTab === "amenities" ? "default" : "outline"}
-            className={`px-6 md:px-8 py-3 md:py-5 text-sm md:text-base font-semibold rounded-lg transition-all duration-400 ${activeTab === "amenities" ? "bg-gradient-to-r from-[#DAAA97] to-[#c99a87] text-white shadow-lg scale-105" : "bg-white/10 border border-white/12 text-gray-700/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:bg-white/20"}`}
-          >
-            Amenities
           </Button>
         </div>
 
