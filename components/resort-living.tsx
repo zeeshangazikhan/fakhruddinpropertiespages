@@ -95,7 +95,7 @@ export function ResortLiving() {
               {/* Price & CTA */}
               <div className="flex flex-col sm:flex-row items-center gap-6 pt-6 border-t border-white/10 text-center sm:text-left">
                 <div>
-                  <p className="text-xl sm:text-2xl font-semibold text-white">Price To Be announced</p>
+                  <p className="text-xl sm:text-2xl font-semibold text-white">Price To Be Announced</p>
                 </div>
                 <Modal title="Download Brochure" pdfUrl="/Treppan-Living-Prive-Brochure.pdf" />
               </div>
